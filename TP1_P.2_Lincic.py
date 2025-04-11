@@ -25,7 +25,10 @@ def proceso_de_creacion_de_grilla(grilla, dimensión):
     Esta función crea la grilla, primero se crea una lista vacia que va a representar una fila de la matriz, la misma se rellena con las celdas verdes 
     dependiendo de la dimensión asigana.
     Luego de crearla copia y pega la lista en la grilla, que al igual que la anterior, depende de la dimensión, debido a que es una matriz cuadrada.
+    Datos entrantes: Lista
+    No tiene datos salientes
     """
+    # 
     for ejex in range(dimensión):
         fila = []
         for ejey in range(dimensión):
@@ -38,12 +41,15 @@ def objetos(cantidad, tipo):
     Luego de crear la grilla, se introducen los elemtes de la misma, para ello se elige dos números aleatorios entre 0 y la dimensión establecida,
     el primero representa la posición que tendra dentro de una fila y el segundo elige en que fila estará ese objeto, siempre y cuando la celda a remplazar
     esté ocupada por una celda verde.
+    Datos entrantes: Strings e Ints
     """
     global dimensión
     cantidad2 = 0
     while True:
+        # Selección aleatoria de la posicion
         x = random.randint(0, (dimensión - 1))
         y = random.randint(0,(dimensión - 1))
+        # Condicional, si es una celda verde, coloca una hormiga
         if grilla[x][y] == free:
             grilla[x][y] = tipo
             cantidad2 += 1
@@ -169,7 +175,7 @@ def simulaciones(simulaciones):
             # por iteración se suma los pasos a la cantidad de pasos por simulación
             pasos_gen += pasos_it
             # Condición de cuando termina una simulación
-            if comida == int(cant_fd/2):
+            if comida >= int(cant_fd/2):
                 print(f'Simulación número {simulación + 1} terminada')
                 simulación += 1
                 break

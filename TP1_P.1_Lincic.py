@@ -61,7 +61,9 @@ def posición_hormigas(grilla):
     se utiliza enumerate para darle a cada valor una "identidad" o "identificación" que facilita la forma en que uno puede hacer para que la hormiga se mueva 
     entre las direcciones posibles.
     """
+    # 
     for idy,b in enumerate(grilla):
+        # 
         for idx,d in enumerate(b):
             if d == hg:
                 posiciones_hg.append([idy,idx])
