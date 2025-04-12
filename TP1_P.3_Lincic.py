@@ -2,16 +2,18 @@
 # Tercera Parte
 # =============
 
+# Importaciones
 import termcolor as tm
 from termcolor import colored
 import random
 import time
 
-hg = tm.colored("▓▓", 'red')
-free = tm.colored("▓▓", 'green')
-food = tm.colored("▓▓", 'white', 'on_green')
-already = tm.colored("▓▓", 'yellow')
-obs = tm.colored("▓▓", 'grey')
+# Aisignación de los elemntos
+hg = tm.colored("▓▓", 'red') # Hormigas
+free = tm.colored("▓▓", 'green') # Espacios libres/celda verde
+food = tm.colored("▓▓", 'white', 'on_green') # Comida
+already = tm.colored("▓▓", 'yellow') # Celdas ya pisadas por una hormiga
+obs = tm.colored("▓▓", 'grey') # Obstáculos
 
 # Inputs de asignación
 dimensión = int(input('Ingrese la dimensión de la grilla, la misma será cuadrada, por lo tanto solo ingrese para un eje: '))
@@ -26,7 +28,7 @@ def proceso_de_creacion_de_grilla(grilla, dimensión):
     dependiendo de la dimensión asigana.
     Luego de crearla copia y pega la lista en la grilla, que al igual que la anterior, depende de la dimensión, debido a que es una matriz cuadrada.
     Entradas: Lista e Ints
-    Salida: Ningúna. Actualiza una lista definida anteriormente
+    Salida: Ningún tipo de dato. Actualiza una lista definida anteriormente
     """
     filas = []
     # Se agrega a una fila las celdas verdes
@@ -44,7 +46,7 @@ def objetos(cantidad, tipo):
     el primero representa la posición que tendra dentro de una fila y el segundo elige en que fila estará ese objeto, siempre y cuando la celda a remplazar
     esté ocupada por una celda verde.
     Entradas: Ints, Strings
-    Salidas: Ningúna. Actualiza una lista definida anteriormente
+    Salidas: Ningún tipo de dato. Actualiza una lista definida anteriormente
     """
     global dimensión
     cantidad2 = 0
@@ -71,7 +73,7 @@ def posición_hormigas(grilla):
     se utiliza enumerate para darle a cada valor una "identidad" o "identificación" que facilita la forma en que uno puede hacer para que la hormiga se mueva 
     entre las direcciones posibles.
     Entradas: Listas
-    Salida: Ningúna. Actualiza una lista definida anteriormente
+    Salida: Ningún tipo de dato. Actualiza una lista definida anteriormente
     """
     # Asignación de una identifiación a cada fila de la matriz
     for idy,b in enumerate(grilla):
@@ -133,7 +135,7 @@ def movimiento_hormigas(grilla):
     Se elige un valor -1 o 1, ese valor será la dirección que tomará la hormiga. Luego, se elige aleatoriamente si la hormiga se moverá hacia arriba/abajo
     o hacia la izquierda/derecha, en caso de que una no se pueda, hace la otra. (Para esto sirve los returns booleanos anteriores)
     Entradas: Lista
-    Salida: Ningúna. Llama a otas funciones.
+    Salida: Ningún tipo de dato. Llama a otas funciones.
     """
     moov = [-1,1]
     for i in posiciones_hg:    
@@ -154,7 +156,9 @@ def simulaciones(simulaciones):
     Se utiliza un formato parecido al de la parte anterior, para este caso las hormigas se mueven hasta que se alcance la cantidad de iteraciones
     aignadas por el usuario. 
     Al finalizar cada simulación se hace un conteo en toda la grilla de la cantidad de celdas amarillas, en cada simulación se registra esa cantidad en una lista,
-    en la cual se la promedia con la cantidad de simulaciones hechas para dar una área recorrido promedio
+    en la cual se la promedia con la cantidad de simulaciones hechas para dar una área recorrido promedio.
+    Entrada: Int
+    Salida: Ningún tipo de dato
     """
     simulación = 0
     area = []
